@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="spinner_content">
+        <item>choose filter options</item>
+        <item>filter by name</item>
+        <item>filter by quantity</item>
+        <item>filter by percentage change in price since the last day</item>
+    </string-array>
+</resources>

@@ -1,4 +1,4 @@
-package com.example.cryptoapp.model
+package com.example.cryptoapp.model.response
 
 import com.google.gson.annotations.SerializedName
 
