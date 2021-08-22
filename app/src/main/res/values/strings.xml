@@ -3,4 +3,10 @@
 
     <!-- Crypto Fragment-->
     <string name="spinner_hint">choose filter variants</string>
+
+    <!-- Recycler View-->
+    <string name="recycler_title">Title: </string>
+    <string name="recycler_price">Price: </string>
+    <string name="recycler_volume">Volume: </string>
+    <string name="recycler_percent_change_24">Percent changes: </string>
 </resources>

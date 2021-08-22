@@ -2,8 +2,7 @@ package com.example.cryptoapp
 
 import android.app.Application
 import com.example.cryptoapp.module.createCryptoModule
-import com.example.cryptoapp.module.createRetrofit
-import com.example.cryptoapp.view.fragment.CryptoFragment
+import com.example.cryptoapp.module.createRetrofitModule
 import org.koin.android.ext.koin.androidContext
 import org.koin.android.ext.koin.androidLogger
 import org.koin.core.component.KoinComponent
@@ -19,7 +18,7 @@ class BaseApplication : Application(), KoinComponent {
 
     private fun initModules(): List<Module> {
         val moduleList = arrayListOf<Module>()
-        moduleList.addAll(createRetrofit())
+        moduleList.addAll(createRetrofitModule())
         moduleList.addAll(createCryptoModule())
         return moduleList
     }

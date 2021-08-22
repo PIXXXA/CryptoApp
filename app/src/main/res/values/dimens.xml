@@ -9,4 +9,6 @@
     <dimen name="large_margin">24dp</dimen>
     <dimen name="extra_large_margin">32dp</dimen>
 
+    <!-- Card View-->
+    <dimen name="card_corner_radius">16dp</dimen>
 </resources>

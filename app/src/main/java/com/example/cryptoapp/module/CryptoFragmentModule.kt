@@ -8,8 +8,8 @@ import org.koin.dsl.module
 fun createCryptoModule(): List<Module> {
 
     val viewModel = module {
-        viewModel { CryptoViewModel() }
+        viewModel { CryptoViewModel(get()) }
     }
 
-    return listOf(viewModel)
+    return arrayListOf(viewModel)
 }

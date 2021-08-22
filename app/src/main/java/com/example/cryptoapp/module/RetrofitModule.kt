@@ -9,16 +9,20 @@ import org.koin.dsl.module
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
 
-fun createRetrofit(): List<Module> {
+fun createRetrofitModule(): List<Module> {
 
     val module = module {
         single {
             okHttp()
-            initRetrofit()
+        }
+        single {
             get<Retrofit>().create(IServiceApi::class.java)
         }
+        single {
+            initRetrofit()
+        }
     }
-    return listOf(module)
+    return arrayListOf(module)
 }
 
 private fun okHttp(): OkHttpClient {
