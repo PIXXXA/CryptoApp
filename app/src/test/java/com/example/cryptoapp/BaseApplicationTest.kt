@@ -1,5 +1,6 @@
 package com.example.cryptoapp
 
+import android.app.Application
 import com.example.cryptoapp.rest.IServiceApi
 import com.example.cryptoapp.view.fragment.CryptoViewModel
 import com.nhaarman.mockitokotlin2.mock
@@ -9,7 +10,10 @@ import org.junit.Assert.*
 import org.junit.Test
 import org.junit.runner.RunWith
 import org.junit.runners.JUnit4
+import org.koin.android.ext.koin.androidContext
+import org.koin.android.ext.koin.androidLogger
 import org.koin.androidx.viewmodel.dsl.viewModel
+import org.koin.core.context.startKoin
 import org.koin.core.module.Module
 import org.koin.dsl.module
 import org.koin.test.KoinTest
@@ -22,15 +26,25 @@ class BaseApplicationTest : KoinTest {
     private lateinit var application: BaseApplication
 
     @Test
-    private fun testApplicationInitedKoinModules() {
+    fun testInitializedKoinModules() {
         application = mock()
-        assertEquals(initModules(), application.initModules())
+        val testInitKoin = insertKoin(application, initModules())
+        val initKoin = application.insertKoin(application, application.initModules())
+        assertEquals(testInitKoin, initKoin)
     }
 
     private fun initModules(): List<Module> {
         val moduleList = arrayListOf<Module>()
         moduleList.addAll(createTestModules())
         return moduleList
+    }
+
+    private fun insertKoin(application: Application, moduleList: List<Module>) {
+        startKoin {
+            androidLogger()
+            androidContext(application)
+            modules(moduleList)
+        }
     }
 }
 

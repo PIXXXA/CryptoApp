@@ -8,19 +8,13 @@ import android.widget.AdapterView
 import android.widget.ArrayAdapter
 import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.Fragment
-import androidx.lifecycle.Transformations
-import androidx.lifecycle.liveData
 import androidx.recyclerview.widget.GridLayoutManager
 import com.example.cryptoapp.R
 import com.example.cryptoapp.databinding.CryptoFragmentBinding
-import com.example.cryptoapp.model.CryptoDetailsModel
+import com.example.cryptoapp.model.CryptoDataListModel
 import com.example.cryptoapp.view.recyclerview.CryptoAdapter
-import kotlinx.coroutines.CoroutineScope
-import kotlinx.coroutines.Dispatchers
 import org.koin.androidx.viewmodel.ext.android.viewModel
 import org.koin.core.component.KoinComponent
-import java.util.*
-import kotlin.Comparator
 
 class CryptoFragment : Fragment(), KoinComponent {
 
@@ -44,7 +38,7 @@ class CryptoFragment : Fragment(), KoinComponent {
     }
 
     private fun initRecyclerView() {
-        viewModel.cryptoList.observe(viewLifecycleOwner, {
+        viewModel.cryptoDataList.observe(viewLifecycleOwner, {
             viewModel.isLoading.value = true
             createAdapter(it)
             createRecyclerLayout()
@@ -52,8 +46,8 @@ class CryptoFragment : Fragment(), KoinComponent {
         })
     }
 
-    private fun createAdapter(model: List<CryptoDetailsModel>) {
-        val adapter = CryptoAdapter(model)
+    private fun createAdapter(modelData: List<CryptoDataListModel>) {
+        val adapter = CryptoAdapter(modelData)
         adapter.notifyDataSetChanged()
         binding.cryptoRecyclerView.adapter = adapter
     }
@@ -82,15 +76,15 @@ class CryptoFragment : Fragment(), KoinComponent {
             ) {
                 when (position) {
                     0 -> {
-                        viewModel.cryptoList.value?.sortedBy { it -> it.name }
+                        viewModel.cryptoDataList.value?.sortedBy { it -> it.name }
                             ?.let { it1 -> createAdapter(it1) }
                     }
                     1 -> {
-                        viewModel.cryptoList.value?.sortedBy { it -> it.volume24 }
+                        viewModel.cryptoDataList.value?.sortedBy { it -> it.volume24 }
                             ?.let { it1 -> createAdapter(it1) }
                     }
                     2 -> {
-                        viewModel.cryptoList.value?.sortedBy { it -> it.percent_change_24h }
+                        viewModel.cryptoDataList.value?.sortedBy { it -> it.percent_change_24h }
                             ?.let { it1 -> createAdapter(it1) }
                     }
                 }

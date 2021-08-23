@@ -5,9 +5,9 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.example.cryptoapp.R
 import com.example.cryptoapp.databinding.RecyclerViewItemBinding
-import com.example.cryptoapp.model.CryptoDetailsModel
+import com.example.cryptoapp.model.CryptoDataListModel
 
-class CryptoAdapter(private val model: List<CryptoDetailsModel>) :
+class CryptoAdapter(private val modelData: List<CryptoDataListModel>) :
     RecyclerView.Adapter<CryptoViewHolder>() {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): CryptoViewHolder {
@@ -17,8 +17,8 @@ class CryptoAdapter(private val model: List<CryptoDetailsModel>) :
     }
 
     override fun onBindViewHolder(holder: CryptoViewHolder, position: Int) {
-        holder.populate(model[position])
+        holder.populate(modelData[position])
     }
 
-    override fun getItemCount(): Int = model.size
+    override fun getItemCount(): Int = modelData.size
 }

@@ -23,7 +23,7 @@ class BaseApplication : Application(), KoinComponent {
         return moduleList
     }
 
-    private fun insertKoin(application: Application, moduleList: List<Module>) {
+    internal fun insertKoin(application: Application, moduleList: List<Module>) {
         startKoin {
             androidLogger()
             androidContext(application)

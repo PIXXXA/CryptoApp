@@ -2,7 +2,7 @@ package com.example.cryptoapp.view.fragment
 
 import android.util.Log
 import androidx.lifecycle.*
-import com.example.cryptoapp.model.CryptoDetailsModel
+import com.example.cryptoapp.model.CryptoDataListModel
 import com.example.cryptoapp.rest.IServiceApi
 import kotlinx.coroutines.*
 import org.koin.core.component.KoinComponent
@@ -11,8 +11,8 @@ import java.io.IOException
 
 class CryptoViewModel(private val serviceApi: IServiceApi) : ViewModel(), KoinComponent {
 
-    private val _cryptoList = MutableLiveData<List<CryptoDetailsModel>>()
-    var cryptoList: LiveData<List<CryptoDetailsModel>> = _cryptoList
+    private val _cryptoList = MutableLiveData<List<CryptoDataListModel>>()
+    var cryptoDataList: LiveData<List<CryptoDataListModel>> = _cryptoList
 
     var isLoading = MutableLiveData<Boolean>()
 

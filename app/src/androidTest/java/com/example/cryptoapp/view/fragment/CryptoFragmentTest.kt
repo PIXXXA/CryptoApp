@@ -13,6 +13,7 @@ import androidx.test.ext.junit.runners.AndroidJUnit4
 import com.example.cryptoapp.R
 import junit.framework.TestCase
 import org.hamcrest.CoreMatchers.anything
+import org.hamcrest.Matcher
 import org.hamcrest.Matchers.containsString
 import org.junit.After
 import org.junit.Before
@@ -25,7 +26,7 @@ class CryptoFragmentAndroidTest : TestCase() {
     private lateinit var scenario: FragmentScenario<CryptoFragment>
 
     @Before
-    override fun setUp() {
+    public override fun setUp() {
         scenario = launchFragmentInContainer()
         scenario.moveToState(Lifecycle.State.STARTED)
     }
@@ -34,7 +35,7 @@ class CryptoFragmentAndroidTest : TestCase() {
     fun testSelectedSpinnerValue() {
         onView(withId(R.id.crypto_filter_spinner)).perform(click())
         onData(anything()).atPosition(1).perform(click())
-        onView(withId(R.id.crypto_filter_spinner)).check(matches(withSpinnerText(containsString(R.array.spinner_content.toString()))))
+        onView(withId(R.id.crypto_filter_spinner)).check(matches(withSpinnerText(containsString("filter by quantity"))))
     }
 
     @After
