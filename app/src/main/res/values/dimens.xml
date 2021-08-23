@@ -11,4 +11,10 @@
 
     <!-- Card View-->
     <dimen name="card_corner_radius">16dp</dimen>
+
+    <!-- Text Size -->
+    <dimen name="small_text">12dp</dimen>
+    <dimen name="middle_text">16dp</dimen>
+    <dimen name="large_text">24dp</dimen>
+    <dimen name="extra_large_text">32dp</dimen>
 </resources>

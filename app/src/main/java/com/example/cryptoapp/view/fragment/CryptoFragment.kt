@@ -59,6 +59,7 @@ class CryptoFragment : Fragment(), KoinComponent {
     }
 
     private fun createRecyclerLayout() {
+        binding.cryptoRecyclerView.setHasFixedSize(true)
         binding.cryptoRecyclerView.layoutManager =
             GridLayoutManager(binding.root.context, SPAN_COUNT)
     }
