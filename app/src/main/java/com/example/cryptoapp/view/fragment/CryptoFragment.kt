@@ -15,6 +15,8 @@ import com.example.cryptoapp.R
 import com.example.cryptoapp.databinding.CryptoFragmentBinding
 import com.example.cryptoapp.model.CryptoDetailsModel
 import com.example.cryptoapp.view.recyclerview.CryptoAdapter
+import kotlinx.coroutines.CoroutineScope
+import kotlinx.coroutines.Dispatchers
 import org.koin.androidx.viewmodel.ext.android.viewModel
 import org.koin.core.component.KoinComponent
 import java.util.*
@@ -79,26 +81,16 @@ class CryptoFragment : Fragment(), KoinComponent {
             ) {
                 when (position) {
                     0 -> {
-                        viewModel.cryptoList.value?.sortedBy { it -> it.name }?.let { it1 ->
-                            createAdapter(
-                                it1
-                            )
-                        }
+                        viewModel.cryptoList.value?.sortedBy { it -> it.name }
+                            ?.let { it1 -> createAdapter(it1) }
                     }
                     1 -> {
-                        viewModel.cryptoList.value?.sortedBy { it -> it.volume24 }?.let { it1 ->
-                            createAdapter(
-                                it1
-                            )
-                        }
+                        viewModel.cryptoList.value?.sortedBy { it -> it.volume24 }
+                            ?.let { it1 -> createAdapter(it1) }
                     }
                     2 -> {
                         viewModel.cryptoList.value?.sortedBy { it -> it.percent_change_24h }
-                            ?.let { it1 ->
-                                createAdapter(
-                                    it1
-                                )
-                            }
+                            ?.let { it1 -> createAdapter(it1) }
                     }
                 }
             }

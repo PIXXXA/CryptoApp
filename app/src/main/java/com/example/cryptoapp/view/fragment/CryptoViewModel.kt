@@ -1,10 +1,7 @@
 package com.example.cryptoapp.view.fragment
 
 import android.util.Log
-import androidx.lifecycle.LiveData
-import androidx.lifecycle.MutableLiveData
-import androidx.lifecycle.ViewModel
-import androidx.lifecycle.viewModelScope
+import androidx.lifecycle.*
 import com.example.cryptoapp.model.CryptoDetailsModel
 import com.example.cryptoapp.rest.IServiceApi
 import kotlinx.coroutines.*

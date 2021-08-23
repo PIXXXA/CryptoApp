@@ -16,7 +16,7 @@ class BaseApplication : Application(), KoinComponent {
         insertKoin(this, initModules())
     }
 
-    private fun initModules(): List<Module> {
+    internal fun initModules(): List<Module> {
         val moduleList = arrayListOf<Module>()
         moduleList.addAll(createRetrofitModule())
         moduleList.addAll(createCryptoModule())
