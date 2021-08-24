@@ -11,14 +11,14 @@ class CryptoViewHolder(private val binding: RecyclerViewItemBinding) :
 
     fun populate(modelData: CryptoDataListModel) {
         val resources = binding.root.context.resources
-        binding.cryptoTitle.text =
-            "${resources.getString(R.string.recycler_title)} ${modelData.name}"
         binding.growthIndicator.comparePercentChanges(modelData.percent_change_1h)
+        binding.cryptoTitle.text =
+            "${resources.getString(R.string.recycler_title)}: ${modelData.name}"
         binding.cryptoPrice.text =
-            "${resources.getString(R.string.recycler_price)} ${modelData.price_usd}"
+            "${resources.getString(R.string.recycler_price)}: ${modelData.price_usd}"
         binding.cryptoVolume.text =
-            "${resources.getString(R.string.recycler_volume)} ${modelData.volume24}"
+            "${resources.getString(R.string.recycler_volume)}: ${modelData.volume24}"
         binding.cryptoPercentChange24.text =
-            "${resources.getString(R.string.recycler_percent_change_24)} ${modelData.percent_change_24h}"
+            "${resources.getString(R.string.recycler_percent_change_24)}: ${modelData.percent_change_24h}"
     }
 }
