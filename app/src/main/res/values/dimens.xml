@@ -17,4 +17,7 @@
     <dimen name="middle_text">16dp</dimen>
     <dimen name="large_text">24dp</dimen>
     <dimen name="extra_large_text">32dp</dimen>
+
+    <!-- Image View -->
+    <dimen name="image_size">24dp</dimen>
 </resources>

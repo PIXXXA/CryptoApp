@@ -2,6 +2,7 @@ package com.example.cryptoapp.view.recyclerview
 
 import androidx.recyclerview.widget.RecyclerView
 import com.example.cryptoapp.R
+import com.example.cryptoapp.comparePercentChanges
 import com.example.cryptoapp.databinding.RecyclerViewItemBinding
 import com.example.cryptoapp.model.CryptoDataListModel
 
@@ -10,7 +11,8 @@ class CryptoViewHolder(private val binding: RecyclerViewItemBinding) :
 
     fun populate(modelData: CryptoDataListModel) {
         binding.cryptoTitle.text = setViewFieldText(R.string.recycler_title, modelData.name)
-        binding.cryptoPrice.text = setViewFieldText(R.string.recycler_title, modelData.price_usd)
+        binding.growthIndicator.comparePercentChanges(modelData.percent_change_1h)
+        binding.cryptoPrice.text = setViewFieldText(R.string.recycler_price, modelData.price_usd)
         binding.cryptoVolume.text = setViewFieldText(R.string.recycler_volume, modelData.volume24)
         binding.cryptoPercentChange24.text =
             setViewFieldText(R.string.recycler_percent_change_24, modelData.percent_change_24h)
